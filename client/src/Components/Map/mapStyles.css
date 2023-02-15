@@ -1,0 +1,20 @@
+.paper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+}
+
+.markerContainer {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.markerContainer:hover {
+  z-index: 2;
+}
+
+.pointer {
+  cursor: pointer;
+}
