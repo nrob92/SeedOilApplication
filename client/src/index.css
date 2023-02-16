@@ -23,6 +23,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   object-fit: cover;
+  background-size: cover;
   background-image: url("./images/background.png");
   overscroll-behavior: none;
 }
@@ -93,6 +94,7 @@ button:hover {
   height: 100%;
   max-height: 550px;
   padding: 30px;
+  align-content: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,7 +102,6 @@ button:hover {
   color: #4c3202;
   border: 6px solid #4c3202;
   border-radius: 10px;
-  text-align: center;
   z-index: 99999;
   position: relative;
   background-color: rgba(237, 186, 69, 0.8);
@@ -116,6 +117,7 @@ button:hover {
 .form-container h1 {
   font-weight: 900;
   letter-spacing: 0.75px;
+  text-align: center;
 }
 
 .form-container button:last-child {
@@ -132,13 +134,16 @@ button:hover {
   padding: 0.5rem;
   border-radius: 0.3rem;
   font-size: 1.1rem;
-  max-width: 90%;
   background-color: transparent;
   border: 2px solid #3a2602;
 }
 
 .form-container input::placeholder {
   color: #3a2602;
+}
+
+.form-container span {
+  text-align: center;
 }
 
 .hide {
@@ -168,7 +173,12 @@ button:hover {
 }
 
 .list-input {
-  width: 33%;
+  width: 50%;
+  padding: 5px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
 }
 
 .list-show {
@@ -178,8 +188,8 @@ button:hover {
   bottom: 0;
   background-color: rgb(247, 247, 247);
   border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-  z-index: 10;
+  box-shadow: 0px -196px 53px 50px rgba(0,0,0,0.6);
+  z-index: 999;
   width: 100%;
   height: 80%;
   border: 5px solid;
@@ -195,6 +205,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
+
   max-width: 300px;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;

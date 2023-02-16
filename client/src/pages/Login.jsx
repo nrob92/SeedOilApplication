@@ -50,24 +50,28 @@ const Login = () => {
       <form className="form-container" onSubmit={(e) => handleSubmit(e)}>
         <h1>Seed Oil App</h1>
         <h2>Login</h2>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          autoComplete="username"
-          onChange={(e) =>
-            setValues({ ...values, [e.target.name]: e.target.value })
-          }
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          autoComplete="current-password"
-          onChange={(e) =>
-            setValues({ ...values, [e.target.name]: e.target.value })
-          }
-        />
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            autoComplete="username"
+            onChange={(e) =>
+              setValues({ ...values, [e.target.name]: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            autoComplete="current-password"
+            onChange={(e) =>
+              setValues({ ...values, [e.target.name]: e.target.value })
+            }
+          />
+        </div>
         <button type="submit">Submit</button>
         <span>Don't have an account ?</span>
         <button onClick={() => setUserRegistered(false)}> Register </button>

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./index.css";
 import App from "./App";
@@ -14,9 +14,9 @@ const theme = createTheme({
   },
 });
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <ThemeProvider theme={theme}>
     <App />
-  </ThemeProvider>
+  </ThemeProvider>,
+  document.getElementById("root")
 );

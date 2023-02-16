@@ -48,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      width: "12ch",
+      width: "15ch",
       "&:focus": {
         width: "20ch",
       },
@@ -206,7 +206,6 @@ export default function NavBar() {
           direction="row"
           alignItems="center"
           justifyContent={matches && loggedIn ? "space-between" : "flex-end"}
-          width="100%"
         >
           {loggedIn ? (
             <>
@@ -222,8 +221,7 @@ export default function NavBar() {
                   <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
                     <StyledInputBase
                       value={clear}
-                      style={{ minWidth: "300px" }}
-                      placeholder="Location…"
+                      placeholder="Search Restaurant"
                       inputProps={{ "aria-label": "search" }}
                     />
                   </Autocomplete>

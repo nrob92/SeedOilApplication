@@ -14,6 +14,7 @@ import {
   Box,
   CardHeader,
   CircularProgress,
+  Typography,
 } from "@mui/material";
 import Tags from "../Tags/Tags";
 import AlertComponent from "./Alert";
@@ -29,7 +30,7 @@ const FormModal = ({ place, setOpen }) => {
   const [input, setInput] = React.useState("");
   const [imgFile, setImgFile] = React.useState("");
   const [formLoading, setFormLoading] = React.useState(false);
-  const { setSeedOilData, restaurantData, tagValue } =
+  const { setSeedOilData, restaurantData, tagValue, setTagValue } =
     React.useContext(AppContext);
 
   const generateError = (error) =>
@@ -51,7 +52,7 @@ const FormModal = ({ place, setOpen }) => {
 
   const postSeedOilData = async (input, select, userRating, imgFile) => {
     try {
-      setFormLoading(true)
+      setFormLoading(true);
       const responseUser = await axios.get(
         `${process.env.REACT_APP_LOCAL_HOST}/getUser`,
         {
@@ -77,7 +78,8 @@ const FormModal = ({ place, setOpen }) => {
       setInput("");
       setSelect("");
       setImgFile("");
-      setFormLoading(false)
+      setTagValue("");
+      setFormLoading(false);
       setOpen(false);
     } catch (error) {}
   };
@@ -110,11 +112,12 @@ const FormModal = ({ place, setOpen }) => {
         >
           <Card elevation={10} sx={{ p: 2 }}>
             <CardHeader
-              sx={{ p: 1 }}
+              sx={{ padding: "5px, 0,5px,0" }}
               action={
                 <button
                   onClick={(e) => {
                     e.preventDefault();
+                    setTagValue("");
                     setOpen(false);
                   }}
                 >
@@ -129,25 +132,28 @@ const FormModal = ({ place, setOpen }) => {
               flexDirection="column"
               gap={1}
             >
-              <Rating
-                label="required"
-                name="simple-controlled"
-                value={userRating}
-                onChange={(event, newValue) => {
-                  setUserRating(newValue);
-                }}
-              />
+              <Stack direction="row" spacing={1} alignItems="center">
+                <Typography variant="subtitle2">Rating</Typography>
+                <Rating
+                  label="required"
+                  name="simple-controlled"
+                  value={userRating}
+                  onChange={(event, newValue) => {
+                    setUserRating(newValue);
+                  }}
+                />
+              </Stack>
 
               <AlertComponent userRating={userRating} />
               <Divider sx={{ borderBottomWidth: "3px" }} />
               <FormControl>
                 <InputLabel id="demo-simple-select-label">
-                  Select Source
+                  Select Proof Of Claim
                 </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  label="Select Source"
+                  label="Select Proof of Claim"
                   value={select}
                   name="select"
                   onChange={(event) => {
@@ -158,6 +164,7 @@ const FormModal = ({ place, setOpen }) => {
                   <MenuItem value={"Kitchen Confirmed"}>
                     Kitchen Confirmed
                   </MenuItem>
+                  <MenuItem value={"In Writing"}>Asked Staff</MenuItem>
                   <MenuItem value={"In Writing"}>In Writing</MenuItem>
                 </Select>
               </FormControl>
@@ -166,7 +173,7 @@ const FormModal = ({ place, setOpen }) => {
               <TextField
                 sx={{ p: 0 }}
                 id="outlined-basic"
-                label="Source Body"
+                label="Report Proof Of Claim"
                 variant="outlined"
                 name="input"
                 value={input}

@@ -32,7 +32,7 @@ export default function ScrollableTabsButtonAuto() {
       <TextField
         onChange={(e) => setInputValue(e.target.value)}
         id="outlined-basic"
-        label="Search and tap tags"
+        label="Search And Tap Tags Below"
         variant="outlined"
         name="input"
       />
@@ -50,7 +50,6 @@ export default function ScrollableTabsButtonAuto() {
             <Tab
               height="10px"
               sx={{
-                p: 0,
                 margin: "3px",
                 border: "2px solid",
                 borderRadius: "10px",
@@ -78,7 +77,6 @@ export default function ScrollableTabsButtonAuto() {
               <Tab
                 key={i}
                 sx={{
-                  p: 0,
                   margin: "5px",
                   border: "2px solid",
                   borderRadius: "10px",

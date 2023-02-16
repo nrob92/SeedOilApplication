@@ -59,7 +59,7 @@ const List = ({ places }) => {
   return (
     <Box p={1} className={showListView ? "list-show" : "list-view"}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography variant="h4">Restaurants</Typography>
+        <Typography variant="h4">Restaurant List</Typography>
         {showListView ? <button onClick={handleListView}>X</button> : undefined}
       </Stack>
 
@@ -69,26 +69,50 @@ const List = ({ places }) => {
         </div>
       ) : (
         <>
+          <Typography variant="h6">Filter & Sort</Typography>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-helper-label">Rating</InputLabel>
-
             <Stack
-              m={1}
-              spacing={1}
+              mb={1}
+              mt={1}
+              spacing={2}
               direction="row"
-              justifyContent="space-between"
+              justifyContent="center"
               alignItems="center"
             >
+              <input
+                className="list-input"
+                type="text"
+                value={search}
+                placeholder="Restaurant Name"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <input
+                className="list-input"
+                type="text"
+                value={searchTag}
+                placeholder="Tags"
+                onChange={(e) => setSearchTag(e.target.value)}
+              />
+            </Stack>
+          </FormControl>
+
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            mb={1}
+            spacing={2}
+          >
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">User Rating</InputLabel>
               <Select
                 sx={{
                   backgroundColor: "white",
                   borderRadius: "10px",
-                  width: "80px",
-                  height: "40px",
                 }}
                 displayEmpty
                 inputProps={{ "aria-label": "Select option" }}
-                label="Rating"
+                label="User Rating"
                 value={rating}
                 onChange={handleMouseDown}
               >
@@ -97,28 +121,15 @@ const List = ({ places }) => {
                 <MenuItem value={4}>Above 4.0</MenuItem>
                 <MenuItem value={4.5}>Above 4.5</MenuItem>
               </Select>
-              <input
-                className="list-input"
-                type="text"
-                value={search}
-                placeholder="name"
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <input
-                className="list-input"
-                type="text"
-                value={searchTag}
-                placeholder="tags"
-                onChange={(e) => setSearchTag(e.target.value)}
-              />
-            </Stack>
-            <FormControl>
-              <InputLabel id="demo-simple-select-helper-label">Sort</InputLabel>
+            </FormControl>
 
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Sort</InputLabel>
               <Select
                 sx={{
                   backgroundColor: "white",
                   borderRadius: "10px",
+                  width: "100%",
                 }}
                 labelId="sort"
                 id="sort"
@@ -126,14 +137,15 @@ const List = ({ places }) => {
                 label="sort"
                 onChange={(e) => setSort(e.target.value)}
               >
-                <MenuItem value="none">none</MenuItem>
+                <MenuItem value="none">None</MenuItem>
                 <MenuItem value="best">Best</MenuItem>
-                <MenuItem value="worst">worst</MenuItem>
+                <MenuItem value="worst">Worst</MenuItem>
                 <MenuItem value="recent">Recent</MenuItem>
                 <MenuItem value="nearby">Nearby</MenuItem>
               </Select>
             </FormControl>
-          </FormControl>
+          </Stack>
+
           <Stack
             direction="row"
             flexWrap="wrap"
