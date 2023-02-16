@@ -22,7 +22,7 @@ html {
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  object-fit: cover;
   background-image: url("./images/background.png");
   overscroll-behavior: none;
 }
@@ -89,9 +89,9 @@ button:hover {
 
 .form-container {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   height: 100%;
-  max-height: 500px;
+  max-height: 550px;
   padding: 30px;
   display: flex;
   justify-content: space-between;
@@ -158,13 +158,13 @@ button:hover {
 }
 
 .home-form {
-  position: relative;
+  height: calc(100vh - 65px);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  max-width: 900px;
-  height: calc(100vh - 65px);
+  max-width: 800px;
+  margin: auto;
 }
 
 .list-input {
@@ -268,13 +268,12 @@ section {
   text-align: center;
 }
 
-.section-container{
+.section-container {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-image: url("./images/home-section-wave.svg");
   overscroll-behavior: none;
-
 }
 
 .section-container::-webkit-scrollbar {
@@ -304,6 +303,8 @@ span a {
 
   .form-container {
     margin: 0;
+    max-width: 300px;
+    max-height: 475px;
   }
 
   .list-view {

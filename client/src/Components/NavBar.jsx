@@ -182,6 +182,7 @@ export default function NavBar() {
       className="nav-container"
       style={{
         height: matches && location.pathname === "/home" ? "150px" : "",
+        top: matches && location.pathname === "/home" ? "0" : "10px",
       }}
     >
       <div

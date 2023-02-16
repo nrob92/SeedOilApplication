@@ -14,7 +14,6 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -140,8 +139,9 @@ export default function SeedOilModal({ place, setSeedOilModal }) {
                 <Box sx={style}>
                   <img
                     style={{
-                      width: "100%",
                       objectFit: "cover",
+                      maxWidth: matches ? "300px" : "800px",
+                      maxHeight: matches ? "450px" : "600px",
                     }}
                     src={place.imgFile}
                   />

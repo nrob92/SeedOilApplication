@@ -93,7 +93,7 @@ const MobileFooter = () => {
           )}
 
           <Stack direction="row">
-            <button onClick={() => navigate("/")}>Home</button>
+            <button onClick={() => navigate("/home")}>Home</button>
             <button onClick={() => navigate("/profile")}>Profile</button>
             <button onClick={logOut}>Logout</button>
           </Stack>
