@@ -23,7 +23,9 @@ export default function ScrollableTabsButtonAuto() {
     "seed-oil",
   ];
 
-  const filterTags = tagsInfo.filter((word) => word.includes(inputValue));
+  const filterTags = tagsInfo.filter((word) =>
+    word.toLowerCase().includes(inputValue.toLowerCase())
+  );
   const tabValue = filterTags[0];
   const tabsValue = tagValue[tagValue.length - 1];
 
@@ -32,7 +34,7 @@ export default function ScrollableTabsButtonAuto() {
       <TextField
         onChange={(e) => setInputValue(e.target.value)}
         id="outlined-basic"
-        label="Search And Tap Tags Below"
+        label="Search & Tap Tags Below"
         variant="outlined"
         name="input"
       />

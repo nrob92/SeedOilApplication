@@ -15,6 +15,7 @@ import {
   CardHeader,
   CircularProgress,
   Typography,
+  Alert,
 } from "@mui/material";
 import Tags from "../Tags/Tags";
 import AlertComponent from "./Alert";
@@ -83,7 +84,6 @@ const FormModal = ({ place, setOpen }) => {
       setOpen(false);
     } catch (error) {}
   };
-
   return (
     <Box
       sx={{
@@ -180,15 +180,22 @@ const FormModal = ({ place, setOpen }) => {
                 onChange={(e) => setInput(e.target.value)}
               />
               <Divider sx={{ borderBottomWidth: "3px" }} />
-
               <Tags />
               <Divider sx={{ borderBottomWidth: "3px" }} />
-              <FileBase64
-                multiple={false}
-                onDone={({ base64 }) => setImgFile(base64)}
-              />
+              <div className="input-file">
+                <FileBase64
+                  multiple={false}
+                  onDone={({ base64 }) => setImgFile(base64)}
+                />
+              </div>
+              {imgFile && <Alert>Image Uploaded!</Alert>}
 
-              <button type="submit">Submit</button>
+              <button
+                style={{ width: "100%", maxWidth: "300px", margin: "auto" }}
+                type="submit"
+              >
+                Submit
+              </button>
             </Stack>
           </Card>
         </form>
