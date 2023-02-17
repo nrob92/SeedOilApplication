@@ -20,6 +20,10 @@ input:focus,
 textarea:focus {
   outline: none;
 }
+input {
+  touch-action: manipulation;
+}
+
 
 html {
   font-size: clamp(12px, 16px, 20px);
