@@ -25,7 +25,8 @@ const whitelist = [
   "https://seed-oil-app.herokuapp.com",
   "https://seed-oil-app.herokuapp.com/",
   "https://seed-oil-app-720be4aef1c6.herokuapp.com/",
-  "http://seed-oil-app.com"
+  "http://seed-oil-app.com",
+  "https://seed-oil-app.com"
   
 ];
 
